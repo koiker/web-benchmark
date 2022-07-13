@@ -36,10 +36,7 @@ fastify.get('/:fileSize', schema, function (req, reply) {
             .send(file100M);
     }else {
         console.debug('Returning default');
-        reply
-            .header('Content-Type', 'application/octet-stream')
-            .type('application/octet-stream')
-            .send(file100M);
+        reply.send({ healthcheck: 'ok' });
     }
 
 })
